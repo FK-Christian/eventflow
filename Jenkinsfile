@@ -22,7 +22,7 @@ pipeline {
 
     stage('Build Docker') {
       steps {
-        sh 'docker compose build --no-cache'
+        sh 'docker compose -p eventflow build --no-cache order-service inventory-service notification-service'
         echo 'Images Docker construites'
       }
     }
@@ -30,8 +30,10 @@ pipeline {
     stage('Déploiement') {
       steps {
         sh '''
-            docker compose pull
-            docker compose up -d --no-deps order-service inventory-service notification-service
+            docker compose -p eventflow up -d --no-deps \
+              order-service \
+              inventory-service \
+              notification-service
         '''
         echo 'Services démarrés'
       }
