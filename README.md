@@ -2,7 +2,7 @@
 
 > Event-driven microservices platform for order management
 
-**Author:** Fodoup Christian
+**Author:** Fodoup Christian (fodoup@gmail.com)
 
 ---
 
