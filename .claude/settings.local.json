@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /d/Projets/eventflow/*/src/main/java/com/eventflow/*/*/*.java)",
+      "Bash(grep -E \"\\\\.\\(md|yml|yaml|properties|txt\\)$\")"
+    ]
+  }
+}
