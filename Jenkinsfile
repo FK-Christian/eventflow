@@ -29,7 +29,10 @@ pipeline {
 
     stage('Déploiement') {
       steps {
-        sh 'docker compose up -d --remove-orphans'
+        sh '''
+            docker compose pull
+            docker compose up -d --no-deps order-service inventory-service notification-service
+        '''
         echo 'Services démarrés'
       }
     }
