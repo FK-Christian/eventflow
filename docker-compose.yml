@@ -74,6 +74,7 @@ services:
 
   jenkins:
     image: jenkins/jenkins:lts
+    user: root
     ports:
       - "9090:8080"
       - "50000:50000"
@@ -82,6 +83,9 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
       - /usr/libexec/docker:/usr/libexec/docker    # share compose plugin
+      - /usr/libexec/docker/cli-plugins:/usr/libexec/docker/cli-plugins  # compose plugin
+    environment:
+      - DOCKER_HOST=unix:///var/run/docker.sock
 
 volumes:
   jenkins_home:
